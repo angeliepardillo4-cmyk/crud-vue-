@@ -1,0 +1,126 @@
+:root {
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --blue-soft: #f3f8ff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #dfe7f5;
+  --bg: #f8fafc;
+  --card: #fff;
+  --green: #16a34a;
+  --red: #dc2626;
+  --white: #fff;
+
+  font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+header { text-align: center; margin-bottom: 24px; }
+h1 { margin: 0; color: var(--blue); font-size: 2rem; }
+h2 { margin: 0 0 12px; font-size: 1.15rem; }
+.muted { color: var(--muted); margin: 0; }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.stat span { display: block; font-size: 1.6rem; font-weight: 700; color: var(--blue); }
+.stat.pending span { color: var(--blue); }
+.stat.approved span { color: var(--green); }
+.stat.rejected span { color: var(--red); }
+
+/* Form */
+.form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; font-weight: 600; }
+input, select, textarea {
+  font: inherit;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: -1px;
+}
+.error { color: var(--red); margin: 0; font-size: 0.9rem; }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+}
+.btn:hover { background: var(--blue-soft); }
+.btn.primary { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.btn.primary:hover { background: var(--blue-dark); }
+.btn.success { color: var(--green); border-color: var(--green); }
+.btn.warn { color: var(--blue); border-color: var(--blue); }
+.btn.danger { color: var(--red); border-color: var(--red); }
+
+/* Toolbar */
+.toolbar { display: flex; gap: 10px; margin-bottom: 14px; }
+.toolbar input { flex: 1; }
+
+/* List */
+.list { display: flex; flex-direction: column; gap: 12px; }
+.empty { text-align: center; color: var(--muted); padding: 24px 0; }
+.item-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.meta { margin: 4px 0; color: var(--muted); font-size: 0.9rem; }
+.details { margin: 6px 0 10px; }
+.item .actions { margin-top: 10px; }
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.badge.pending { background: #eff6ff; color: var(--blue); }
+.badge.approved { background: #dcfce7; color: var(--green); }
+.badge.rejected { background: #fee2e2; color: var(--red); }
+
+@media (max-width: 520px) {
+  .row { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
